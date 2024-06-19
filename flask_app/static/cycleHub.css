@@ -1,0 +1,594 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.p {
+    font-size: large;
+}
+
+:root {
+    /* =====colors===== */
+    --body-color: #e4e9f7;
+    --sidebar-color: white;
+    --primary-color: #695cfe;
+    --primary-color-light: #e0e0e2;
+    --toggle-color: rgba(13, 18, 6, 0.977);
+    --text-color: #464545;
+
+    /* =====Transition===== */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-04: all 0.5s ease;
+}
+body {
+    height: 100vh;
+    background: var(--body-color);
+    transition: var(--tran-04);
+}
+body.dark {
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
+/* Basic Css */
+#map {
+    z-index: 2;
+    height: 100%;
+}
+
+/* Make the map full screen */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 100%;
+    width: auto;
+}
+/* Logo */
+.li {
+    margin: 10px;
+}
+#logoBox {
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#logo2 {
+    width: 150px;
+    height: 100px;
+    margin: 0;
+}
+.sidebar.close #logo2 {
+    display: none;
+}
+.sidebar.close #logo {
+    display: block;
+}
+.sidebar #logo {
+    display: none;
+}
+
+/* ===== SideBar ===== */
+.sidebar {
+    position: fixed;
+    width: 400px;
+    height: 55%;
+    min-width: 400px;
+    max-width: 25%;
+    min-height: 700px;
+    max-height: 55%;
+    top: 0;
+    left: 0;
+
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    margin: 5% 10px 5% 20px;
+
+    z-index: 3;
+    border-radius: 20px;
+}
+
+.sidebar.close {
+    min-width: 88px;
+    max-width: 88px;
+    min-height: 700px;
+    max-height: 200px;
+}
+
+/* ===== Reuable CSS ===== */
+.sidebar .text {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-01);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text {
+    opacity: 0;
+}
+.sidebar .image {
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li {
+    height: 50px;
+    margin-top: 30px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.menu {
+    justify-content: space-between;
+}
+.menu-links {
+    padding: 0 0 0 0;
+}
+.sidebar li .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px;
+}
+.sidebar li .icon,
+.sidebar li .text {
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+.sidebar header {
+    position: relative;
+}
+.sidebar .image-text img {
+    width: 40px;
+    border-radius: 6px;
+}
+.sidebar header .image-text {
+    display: flex;
+    align-items: center;
+}
+
+.swap-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    position: absolute; /* Position it relative to its parent */
+    top: 55%; /* Center vertically */
+    right: -2rem; /* Adjust based on your layout */
+    transform: translateY(-50%);
+}
+
+.swap-button:hover {
+    background-color: var(--primary-color-light); /* Light background on hover */
+}
+#dateTimebtn {
+    border-radius: 4px;
+}
+.swap-button i {
+    /* Use the 'i' tag for the icon */
+    color: var(--primary-color); /* Color of the icon */
+    font-size: 1.5rem; /* Size of the icon */
+}
+
+header .image-text .header-text {
+    display: flex;
+    flex-direction: column;
+}
+.header-text .name {
+    font-weight: 600;
+}
+.header-text .profession {
+    margin-top: 5px;
+}
+.sidebar header .toggle {
+    position: absolute;
+    top: 40px;
+    right: -25px;
+    transform: translateY(-50%);
+    height: 25px;
+    width: 25px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-color);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+body.dark .sidebar header .toggle {
+    color: var(--text-color);
+}
+#search-container {
+    width: 200px;
+    position: fixed;
+}
+
+#search-results div:hover {
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+#station-search {
+    width: 800px;
+    border: 0;
+    border-radius: 2px;
+    margin: 10px;
+    padding: 0 0.5em;
+    padding: 0;
+}
+.sidebar.close #station-search {
+    display: none;
+}
+body.dark #searchLocation {
+    color: white;
+}
+body.dark #searchDestination {
+    color: white;
+}
+body.dark #dateinput {
+    color: white;
+}
+body.dark #timeinput {
+    color: white;
+}
+body.dark #station-searcher {
+    color: white;
+}
+.sidebar .box {
+    background: var(--primary-color-light);
+    border-radius: 6px;
+}
+.sidebar.close #logo {
+    width: 100%;
+    height: 70%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar.close label {
+    display: none;
+}
+label {
+    margin-right: 20px;
+}
+.search-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+.greybox form {
+    height: 110%;
+    width: 100%;
+    outline: none;
+    border: none;
+    display: center;
+    overflow: hidden;
+    margin-left: 10px;
+}
+select {
+    border: #18191a solid 3px;
+    margin-top: 13px;
+    margin-right: 0px;
+    border: none;
+    font-family: inherit;
+    font-size: 17px;
+    cursor: inherit;
+    line-height: inherit;
+    background-color: transparent;
+}
+select #timeinput {
+    width: 20%
+}
+.hide { 
+    display: none;
+}
+.greybox button {
+    border: none;
+    width: 30%;
+}
+.sidebar.close .greybox {
+    display: none;
+}
+.sidebar.close #greybox-large {
+    display: none;
+}
+#DateTimeSelection {
+    display: flex;
+}
+.sidebar.close #weatherText {
+    display: none;
+}
+#weatherText {
+    margin-left: 13px;
+    margin-top: 2px;
+}
+.greybox {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+#large.greybox {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 160%;
+}
+.sidebar li a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+}
+.sidebar li a:hover {
+    background-color: var(--primary-color);
+}
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+    color: var(--sidebar-color);
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text {
+    color: var(--sidebar-color);
+}
+
+.sidebar .menu-bar {
+    height: calc(100%- 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .mode {
+    position: relative;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+.menu-bar .mode {
+    position: relative;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+.menu-bar .mode .moon-sun {
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+.menu-bar .mode i {
+    position: absolute;
+}
+.menu-bar .mode i .sun {
+    opacity: 0;
+}
+
+/* sidebar Widemode */
+.menu-bar .mode .toggle-switch {
+    position: absolute;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    min-width: 60px;
+    cursor: pointer;
+    background: var(--primary-color-light);
+}
+
+.toggle-switch .switch {
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+
+    background: var(--toggle-color);
+    margin-right: 0;
+    padding: 0;
+}
+.switch::before {
+    content: '';
+    position: absolute;
+
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+}
+body.dark .switch::before {
+    left: 24px;
+}
+
+.sidebar#timecontainer {
+    display: flex;
+    justify-content: right;
+    padding-right: 3%;
+}
+
+.custom-map-control-button {
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    margin: 10px;
+    padding: 0 0.5em;
+    height: 40px;
+    font-size: 12px;
+    line-height: 40px;
+    text-align: center;
+    color: black;
+}
+#time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vh;
+    font-weight: 500;
+    color: var(--text-color);
+}
+#clockimage {
+    width: 3vh;
+    height: 3vh;
+    padding: 3vh;
+    display: none;
+}
+body.dark #clockimage-black {
+    width: 3vh;
+    height: 3vh;
+    padding: 3vh;
+    display: none;
+}
+body.dark #clockimage {
+    width: 3vh;
+    height: 3vh;
+    padding: 3vh;
+    background: red;
+}
+
+#statistics {
+    padding: 20px;
+}
+
+#searchLocation {
+    margin-right: 30px;
+}
+#searchDestination {
+    margin-right: 30px;
+}
+
+.swap-button {
+    position: absolute;
+    margin-top: -160px;
+    margin-right: 35px;
+}
+
+#timetext {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin: auto;
+    position: relative;
+    z-index: 10;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#timetext h5 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+}
+
+#timetext form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#timetext input[type='date'],
+#timetext input[type='time'] {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* sidebar shortMode */
+.sidebar.close .menu-bar .mode .moon-sun {
+    opacity: 0;
+}
+.sidebar.close .menu-bar .mode .mode-text {
+    opacity: 0;
+}
+.sidebar.close .menu-bar .mode .toggle-switch {
+    position: relative;
+    width: 100%;
+    margin-left: -66px;
+    cursor: pointer;
+    background: var(--primary-color-light);
+    align-items: center;
+    border-radius: 25px;
+}
+.sidebar.close #clockimage {
+    width: 3vh;
+    height: 3vh;
+    padding: 3vh;
+}
+#chart-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999;
+    width: 80vw;
+    max-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#chart {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+#weatherdisplay.closed {
+    display: none;
+}
+
+#datetimedisplay.closed {
+    display: none;
+}
+
+.sidebar.close .swap-button {
+    display: none;
+}

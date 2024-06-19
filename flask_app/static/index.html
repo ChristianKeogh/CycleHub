@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>CycleHub</title>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script
+        src="https://maps.googleapis.com/maps/api/js?&key=xxxxxxxxxxxxxxxxxxxxxx&language=en&libraries=places" defer ></script>
+        <!-- Googlemaps Marker -->
+        <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+        <!-- bootstrap CSS Only-->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+        <!-- JavaScript Bundle with Popper -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="/static/cycleHub.css" />
+        <!-- Boxicons CSS icon -->
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    </head>
+    <body>
+       <div id="map"></div>
+                    <nav class="sidebar close">
+                    <header>
+                        <i class="bx bx-chevron-right toggle" id="openToggle"></i>
+                    </header>
+                    <div class="menu-bar">
+                        <div id="logoTimeconatiner">
+                            <div id="logoBox">
+                                <image id="logo2"src="static/image/LogoBlack.png"></image>
+                                <image id="logo"src="static/image/DarkLogo.png"></image>
+                            </div>
+                                
+                            </li>
+                        </div>
+                        
+                        <div class="menu">
+                            <form id="searchinput" onsubmit="searchDest(event)">
+                                <button id="changeButton" class="swap-button">
+                                    <i class='bx bx-transfer-alt'></i>
+                                </button>
+                                <li class="search-box">
+                                    <i class='bx bx-current-location icon'></i>
+                                    <input type="search" id="searchLocation" placeholder="Search location" />
+                                </li>
+                                <li class="search-box">
+                                    <i class='bx bx-cycling icon'></i>
+                                    <input type="search" id="searchDestination" placeholder="Search destination" />
+                                </li>
+                            </form>
+                            <li class="date-box">
+                                <i class="bx bx-calendar icon"></i>
+                                <div class ="greybox">
+                                <form id="day-time-selection">
+                                    <!-- <label>
+                                        <select id="dateinput">
+                                            <option value="0">Today</option>
+                                            <option value="1">Monday</option>
+                                            <option value="2">Tuesday</option>
+                                            <option value="3">Wednesday</option>
+                                            <option value="4">Thursday</option>
+                                            <option value="5">Friday</option>
+                                            <option value="6">Saturday</option>
+                                            <option value="7">Sunday</option>
+                                        </select>
+                                        <select id="timeinput">
+                                            <option value="0">Now</option>
+                                            <option value="5">5am</option>
+                                            <option value="6">6am</option>
+                                            <option value="7">7am</option>
+                                            <option value="8">8am</option>
+                                            <option value="9">9am</option>
+                                            <option value="10">10am</option>
+                                            <option value="11">11am</option>
+                                            <option value="12">12am</option>
+                                            <option value="13">1pm</option>
+                                            <option value="14">2pm</option>
+                                            <option value="15">3pm</option>
+                                            <option value="16">4pm</option>
+                                            <option value="17">5pm</option>
+                                            <option value="18">6pm</option>
+                                            <option value="19">7pm</option>
+                                            <option value="20">8pm</option>
+                                            <option value="21">9pm</option>
+                                            <option value="22">10pm</option>
+                                            <option value="23">11pm</option>
+                                        </select>
+                                    </label> -->
+                                </form>
+                            </div>
+                                </li>
+                                <div id="date_station_result"></div>
+                                <li class="search-box">
+                                    <i class="bx bx-right-arrow-alt icon"></i>
+                                        <input type="text" id="station-searcher" placeholder=" Search for stations...">
+                                </li>
+                                <div class ="mode-text text" id="errorResult"></div>
+                                <div id="search-results-stations"></div>
+                                <li class = "date-box">
+                                    <i class="bx bx-cloud icon"></i>
+                                    <div class ="greybox">
+                                    <div class="text nav-text" id ="weatherText"></div>
+                                </div>
+                                </li>
+                                <li class="mode">
+                                    <i class="bx bx-moon icon moon"></i>
+                                    <div class="moon-sun">   
+                                    </div>
+                                    <span class="mode-text text">Dark Mode</span>
+                                    <div class="toggle-switch">
+                                        <span class="switch"></span>
+                                    </div>
+                                </li>
+                            </ul>
+    </div>
+
+    </div>
+</nav>
+      
+                <script src="/static/script.js"></script>
+                <script src="/static/mapCustomise.js"></script>
+                <script src="/static/mapCustomise_dark.js"></script>
+                <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+            </body>
+        </html>
+
+
+
